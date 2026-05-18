@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO -->
+  <title>About Tora Tech | Premium Technology Company in Cameroon</title>
+  <meta name="description" content="Learn about Tora Tech — a premium African technology company delivering software development, SEO, digital marketing, Starlink installation, and security solutions across Cameroon and beyond." />
+  <meta name="keywords" content="Tora Tech, Software Development Cameroon, Website Development Cameroon, SEO Cameroon, Digital Marketing Cameroon, Starlink Installation Cameroon, CCTV Installation Cameroon, African Tech Company" />
+  <meta name="author" content="Tora Tech" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            secondary: '#111827',
+            accent: '#2563EB',
+            soft: '#CBD5E1'
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%);
+      filter: blur(90px);
+      z-index: 0;
+    }
+
+    .nav-scrolled {
+      background: rgba(2, 6, 23, 0.8);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #60A5FA, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="font-body">
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20">
+            T
+          </div>
+
+          <div>
+            <h1 class="font-heading font-bold text-2xl tracking-wide">
+              TORA TECH
+            </h1>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <a href="/" class="hover:text-blue-400 transition" data-i18n="home">Home</a>
+          <a href="/services.html" class="hover:text-blue-400 transition" data-i18n="services">Services</a>
+          <a href="/about.html" class="hover:text-blue-400 transition" data-i18n="about">About</a>
+          <a href="/team.html" class="hover:text-blue-400 transition" data-i18n="team">Team</a>
+          <a href="/portfolio.html" class="hover:text-blue-400 transition" data-i18n="portfolio">Portfolio</a>
+          <a href="/testimonials.html" class="hover:text-blue-400 transition" data-i18n="testimonials">Testimonials</a>
+          <a href="/contact.html" class="hover:text-blue-400 transition" data-i18n="contact">Contact</a>
+        </nav>
+
+        <!-- Right -->
+        <div class="hidden lg:flex items-center gap-4">
+
+          <!-- Language -->
+          <div class="glass rounded-full p-1 flex items-center">
+
+            <button id="enBtn"
+              class="lang-btn px-4 py-2 rounded-full bg-blue-600 text-sm font-medium transition">
+              EN
+            </button>
+
+            <button id="frBtn"
+              class="lang-btn px-4 py-2 rounded-full text-sm font-medium text-slate-300 transition">
+              FR
+            </button>
+
+          </div>
+
+          <!-- CTA -->
+          <a href="#"
+            class="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 transition font-medium shadow-xl shadow-blue-600/20">
+            Start Project
+          </a>
+
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button id="menuBtn" class="lg:hidden">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden glass border-t border-white/10">
+
+      <div class="px-6 py-8 flex flex-col gap-6 text-lg">
+
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/team.html">Team</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/contact.html">Contact</a>
+
+        <div class="flex gap-3 pt-4">
+          <button class="bg-blue-600 px-5 py-2 rounded-full">EN</button>
+          <button class="glass px-5 py-2 rounded-full">FR</button>
+        </div>
+
+        <a href="#"
+          class="bg-blue-600 text-center py-3 rounded-full mt-2">
+          Start Project
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center overflow-hidden pt-28">
+
+    <div class="hero-glow top-[-150px] left-[-150px]"></div>
+    <div class="hero-glow bottom-[-200px] right-[-150px]"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- Left -->
+        <div class="fade-up">
+
+          <div class="inline-flex items-center gap-2 glass px-5 py-2 rounded-full mb-8 text-sm text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            African Innovation • Global Standards
+          </div>
+
+          <h1
+            class="font-heading text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+
+            Building Africa's
+            <span class="gradient-text">
+              Digital Future
+            </span>
+
+          </h1>
+
+          <p class="mt-8 text-slate-300 text-lg leading-relaxed max-w-2xl">
+            Tora Tech is a premium technology company in Cameroon helping
+            businesses grow through software engineering, digital marketing,
+            Starlink solutions, SEO optimization, and modern technology systems.
+          </p>
+
+          <div class="flex flex-wrap gap-5 mt-10">
+
+            <a href="#story"
+              class="px-8 py-4 bg-blue-600 rounded-full hover:bg-blue-500 transition font-medium shadow-xl shadow-blue-600/30">
+              Learn More
+            </a>
+
+            <a href="#contact"
+              class="glass px-8 py-4 rounded-full hover:bg-white/10 transition">
+              Contact Us
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Right -->
+        <div class="relative fade-up">
+
+          <div class="glass rounded-[32px] overflow-hidden p-3">
+
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop"
+              class="rounded-[24px] w-full h-[620px] object-cover"
+              alt="African technology professionals">
+
+          </div>
+
+          <!-- Floating Card -->
+          <div
+            class="absolute bottom-8 -left-8 glass p-6 rounded-3xl w-64 shadow-2xl">
+
+            <h3 class="font-heading text-3xl font-bold text-blue-400">
+              100+
+            </h3>
+
+            <p class="text-slate-300 mt-2">
+              Businesses empowered with modern technology solutions worldwide.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COMPANY STORY -->
+  <section id="story" class="py-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <div class="fade-up">
+
+          <img
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
+            class="rounded-[32px] shadow-2xl"
+            alt="Tora Tech team">
+
+        </div>
+
+        <div class="fade-up">
+
+          <p class="text-blue-400 uppercase tracking-[0.3em] text-sm font-semibold mb-5">
+            Our Story
+          </p>
+
+          <h2 class="font-heading text-5xl font-bold leading-tight">
+            Technology Built For African Businesses
+          </h2>
+
+          <p class="mt-8 text-slate-300 leading-relaxed text-lg">
+            Tora Tech was founded with a vision to bridge the gap between
+            African businesses and world-class digital innovation.
+          </p>
+
+          <p class="mt-6 text-slate-400 leading-relaxed">
+            We believe businesses in Cameroon and across Africa deserve access
+            to premium software systems, modern websites, digital marketing,
+            internet connectivity, and enterprise-grade technology solutions.
+          </p>
+
+          <p class="mt-6 text-slate-400 leading-relaxed">
+            Today, Tora Tech helps startups, enterprises, schools, and
+            organizations scale confidently with technology that feels modern,
+            reliable, and globally competitive.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MISSION VISION VALUES -->
+  <section class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Mission -->
+        <div class="glass p-10 rounded-[32px] fade-up">
+
+          <div class="w-16 h-16 rounded-2xl bg-blue-600/20 flex items-center justify-center mb-8">
+            <i data-lucide="target" class="w-8 h-8 text-blue-400"></i>
+          </div>
+
+          <h3 class="font-heading text-3xl font-semibold mb-5">
+            Mission
+          </h3>
+
+          <p class="text-slate-300 leading-relaxed">
+            To empower African businesses with premium technology solutions that
+            drive growth, innovation, and digital transformation.
+          </p>
+
+        </div>
+
+        <!-- Vision -->
+        <div class="glass p-10 rounded-[32px] fade-up">
+
+          <div class="w-16 h-16 rounded-2xl bg-blue-600/20 flex items-center justify-center mb-8">
+            <i data-lucide="eye" class="w-8 h-8 text-blue-400"></i>
+          </div>
+
+          <h3 class="font-heading text-3xl font-semibold mb-5">
+            Vision
+          </h3>
+
+          <p class="text-slate-300 leading-relaxed">
+            To become one of Africa’s leading technology companies delivering
+            globally respected digital experiences and infrastructure.
+          </p>
+
+        </div>
+
+        <!-- Values -->
+        <div class="glass p-10 rounded-[32px] fade-up">
+
+          <div class="w-16 h-16 rounded-2xl bg-blue-600/20 flex items-center justify-center mb-8">
+            <i data-lucide="shield-check" class="w-8 h-8 text-blue-400"></i>
+          </div>
+
+          <h3 class="font-heading text-3xl font-semibold mb-5">
+            Core Values
+          </h3>
+
+          <ul class="space-y-3 text-slate-300">
+            <li>• Innovation</li>
+            <li>• Excellence</li>
+            <li>• Integrity</li>
+            <li>• African Creativity</li>
+            <li>• Customer Success</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="py-32">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center max-w-3xl mx-auto fade-up">
+
+        <p class="text-blue-400 uppercase tracking-[0.3em] text-sm font-semibold mb-5">
+          Journey
+        </p>
+
+        <h2 class="font-heading text-5xl font-bold">
+          Our Growth Timeline
+        </h2>
+
+      </div>
+
+      <div class="mt-20 space-y-10">
+
+        <div class="glass p-8 rounded-3xl fade-up">
+          <h3 class="font-heading text-2xl font-semibold text-blue-400">
+            2022
+          </h3>
+          <p class="text-slate-300 mt-3">
+            Tora Tech was launched with a focus on website development and
+            software solutions in Cameroon.
+          </p>
+        </div>
+
+        <div class="glass p-8 rounded-3xl fade-up">
+          <h3 class="font-heading text-2xl font-semibold text-blue-400">
+            2023
+          </h3>
+          <p class="text-slate-300 mt-3">
+            Expanded into SEO optimization, digital marketing, and enterprise
+            website management.
+          </p>
+        </div>
+
+        <div class="glass p-8 rounded-3xl fade-up">
+          <h3 class="font-heading text-2xl font-semibold text-blue-400">
+            2024
+          </h3>
+          <p class="text-slate-300 mt-3">
+            Added Starlink installation and security camera services to support
+            modern infrastructure needs.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+  <section class="pb-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="glass p-10 rounded-[32px] text-center fade-up">
+          <h3 class="counter font-heading text-6xl font-bold text-blue-400" data-target="100">
+            0
+          </h3>
+          <p class="mt-4 text-slate-300">
+            Website Clients
+          </p>
+        </div>
+
+        <div class="glass p-10 rounded-[32px] text-center fade-up">
+          <h3 class="counter font-heading text-6xl font-bold text-blue-400" data-target="50">
+            0
+          </h3>
+          <p class="mt-4 text-slate-300">
+            Starlink Installations
+          </p>
+        </div>
+
+        <div class="glass p-10 rounded-[32px] text-center fade-up">
+          <h3 class="counter font-heading text-6xl font-bold text-blue-400" data-target="30">
+            0
+          </h3>
+          <p class="mt-4 text-slate-300">
+            Marketing Students
+          </p>
+        </div>
+
+        <div class="glass p-10 rounded-[32px] text-center fade-up">
+          <h3 class="counter font-heading text-6xl font-bold text-blue-400" data-target="20">
+            0
+          </h3>
+          <p class="mt-4 text-slate-300">
+            CCTV Clients
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
+
+  <footer class="relative border-t border-white/10">
+
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-blue-600/10 blur-[120px]"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-24">
+
+      <div class="grid lg:grid-cols-4 gap-14">
+
+        <!-- Logo -->
+        <div>
+
+          <div class="flex items-center gap-4 mb-8">
+
+            <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-glow">
+              <span class="font-heading text-3xl font-bold">T</span>
+            </div>
+
+            <div>
+              <h2 class="font-heading text-3xl font-bold">
+                TORA TECH
+              </h2>
+
+              <p class="text-gray-400 mt-1">
+                Smart Technology Solutions
+              </p>
+            </div>
+
+          </div>
+
+          <p class="text-gray-400 leading-relaxed">
+            Premium African technology company delivering
+            enterprise digital experiences, software solutions,
+            smart installations, and business growth systems.
+          </p>
+
+        </div>
+
+        <!-- Services -->
+        <div>
+
+          <h3 class="font-heading text-xl font-semibold mb-6">
+            Services
+          </h3>
+
+          <ul class="space-y-4 text-gray-400">
+
+            <li><a href="#" class="hover:text-blue-400 transition">Software Development</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">SEO Optimization</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Digital Marketing</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Starlink Installation</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Security Cameras</a></li>
+
+          </ul>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+
+          <h3 class="font-heading text-xl font-semibold mb-6">
+            Quick Links
+          </h3>
+
+          <ul class="space-y-4 text-gray-400">
+
+            <li><a href="#" class="hover:text-blue-400 transition">Home</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">About</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Portfolio</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Testimonials</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
+
+          </ul>
+
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+
+          <h3 class="font-heading text-xl font-semibold mb-6">
+            Stay Updated
+          </h3>
+
+          <p class="text-gray-400 mb-6">
+            Subscribe for technology updates and digital growth insights.
+          </p>
+
+          <form class="space-y-4">
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-blue-500"
+            />
+
+            <button
+              class="w-full bg-blue-600 hover:bg-blue-500 transition py-4 rounded-2xl font-semibold"
+            >
+              Subscribe
+            </button>
+
+          </form>
+
+          <!-- Contact -->
+          <div class="mt-8 space-y-3 text-gray-400">
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              +237 677 972 126
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+              vidbite3@gmail.com
+            </div>
+
+          </div>
+
+          <!-- Social -->
+          <div class="flex gap-4 mt-8">
+
+            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="facebook"></i>
+            </a>
+
+            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="instagram"></i>
+            </a>
+
+            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="linkedin"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div
+        class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500"
+      >
+
+        <p>
+          © 2026 Tora Tech. All rights reserved.
+        </p>
+
+        <p>
+          Built with premium African innovation.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JS -->
+  <script>
+
+    // Lucide
+    lucide.createIcons();
+
+    // Navbar Scroll
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 40){
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // Mobile Menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fade Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Counters
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+
+      const updateCounter = () => {
+
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(current < target){
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.innerText = `${target}+`;
+        }
+
+      }
+
+      updateCounter();
+
+    });
+
+    // i18n Placeholder
+    const translations = {
+      en: {},
+      fr: {}
+    };
+
+  </script>
+
+</body>
+</html>

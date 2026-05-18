@@ -1,0 +1,824 @@
+<!-- =========================
+TORA TECH — CONTACT PAGE
+Premium Responsive Contact Page
+Stack:
+- HTML5
+- TailwindCSS
+- Vanilla JavaScript
+- i18n Localization
+========================= -->
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Tora Tech | Contact Us - Software Development & Digital Solutions Cameroon</title>
+
+  <meta
+    name="description"
+    content="Contact Tora Tech for software development, website management, SEO optimization, digital marketing, Starlink installation, and security camera installation services in Cameroon and worldwide."
+  />
+
+  <meta
+    name="keywords"
+    content="Tora Tech Cameroon, software development Cameroon, website development Africa, SEO Cameroon, digital marketing Cameroon, Starlink installation Cameroon, CCTV installation Cameroon"
+  />
+
+  <meta name="author" content="Tora Tech" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tora Tech | Contact Us" />
+  <meta property="og:description" content="Get in touch with Tora Tech for premium technology solutions." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            darkbg: "#050816",
+            darkcard: "#0f172a",
+            darkborder: "#1e293b",
+          },
+          fontFamily: {
+            heading: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background: #050816;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-gradient {
+      background:
+      radial-gradient(circle at top right, rgba(37,99,235,0.25), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(59,130,246,0.15), transparent 25%);
+    }
+
+    .nav-scrolled {
+      background: rgba(5,8,22,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hover-link {
+      position: relative;
+    }
+
+    .hover-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: #3b82f6;
+      transition: 0.3s;
+    }
+
+    .hover-link:hover::after {
+      width: 100%;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .faq.active .faq-content {
+      max-height: 200px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+<!-- =========================
+NAVBAR
+========================= -->
+<header
+  id="navbar"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="flex items-center justify-between h-20">
+
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-xl font-heading">
+          TT
+        </div>
+
+        <div>
+          <h1 class="font-heading font-bold tracking-wide text-xl">
+            TORA TECH
+          </h1>
+        </div>
+      </a>
+
+      <!-- DESKTOP MENU -->
+      <nav class="hidden lg:flex items-center gap-10 text-sm">
+
+        <a href="#" class="hover-link transition" data-i18n="nav.home">Home</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.services">Services</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.about">About</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.team">Team</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.portfolio">Portfolio</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.testimonials">Testimonials</a>
+
+        <a href="#" class="hover-link transition" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <!-- RIGHT -->
+      <div class="hidden lg:flex items-center gap-4">
+
+        <!-- LANGUAGE -->
+        <select
+          id="languageSwitcher"
+          class="bg-transparent border border-slate-700 rounded-lg px-3 py-2 text-sm"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+
+        <!-- CTA -->
+        <a
+          href="#contactForm"
+          class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-medium"
+          data-i18n="nav.cta"
+        >
+          Get Started
+        </a>
+      </div>
+
+      <!-- MOBILE BUTTON -->
+      <button id="menuBtn" class="lg:hidden">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div
+      id="mobileMenu"
+      class="hidden lg:hidden glass rounded-2xl p-6 mb-4"
+    >
+      <div class="flex flex-col gap-5 text-sm">
+
+        <a href="#" data-i18n="nav.home">Home</a>
+        <a href="#" data-i18n="nav.services">Services</a>
+        <a href="#" data-i18n="nav.about">About</a>
+        <a href="#" data-i18n="nav.team">Team</a>
+        <a href="#" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="#" data-i18n="nav.testimonials">Testimonials</a>
+        <a href="#" data-i18n="nav.contact">Contact</a>
+
+        <select
+          id="mobileLanguageSwitcher"
+          class="bg-transparent border border-slate-700 rounded-lg px-3 py-3"
+        >
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+
+        <a
+          href="#contactForm"
+          class="bg-blue-600 text-center py-3 rounded-xl"
+          data-i18n="nav.cta"
+        >
+          Get Started
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- =========================
+HERO SECTION
+========================= -->
+<section class="hero-gradient pt-40 pb-24 relative">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+
+    <div class="max-w-3xl mx-auto">
+
+      <span class="text-blue-400 tracking-[0.2em] uppercase text-sm font-medium">
+        Tora Tech
+      </span>
+
+      <h1
+        class="font-heading text-5xl lg:text-7xl font-bold leading-tight mt-6"
+        data-i18n="contact.heroTitle"
+      >
+        Let's Build The Future Together
+      </h1>
+
+      <p
+        class="mt-8 text-slate-300 text-lg leading-relaxed"
+        data-i18n="contact.heroText"
+      >
+        Contact Tora Tech for premium software development,
+        digital marketing, SEO optimization, Starlink installation,
+        and enterprise technology solutions.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+
+        <a
+          href="#contactForm"
+          class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl transition font-medium"
+          data-i18n="contact.heroBtn1"
+        >
+          Start Your Project
+        </a>
+
+        <a
+          href="#faq"
+          class="glass px-8 py-4 rounded-xl transition"
+          data-i18n="contact.heroBtn2"
+        >
+          Learn More
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+CONTACT SECTION
+========================= -->
+<section class="py-24">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-14">
+
+      <!-- CONTACT FORM -->
+      <div class="glass rounded-3xl p-8 lg:p-10">
+
+        <h2
+          class="font-heading text-3xl font-bold"
+          data-i18n="contact.formTitle"
+        >
+          Send Us a Message
+        </h2>
+
+        <p
+          class="text-slate-400 mt-4"
+          data-i18n="contact.formText"
+        >
+          We usually respond within 24 hours.
+        </p>
+
+        <form id="contactForm" class="mt-10 space-y-6">
+
+          <div>
+            <label class="block mb-2 text-sm">Full Name</label>
+
+            <input
+              type="text"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm">Email Address</label>
+
+            <input
+              type="email"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm">Service Needed</label>
+
+            <select
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4"
+            >
+              <option>Software Development</option>
+              <option>Website Management</option>
+              <option>SEO Optimization</option>
+              <option>Digital Marketing</option>
+              <option>Starlink Installation</option>
+              <option>Security Camera Installation</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm">Message</label>
+
+            <textarea
+              rows="5"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4"
+            ></textarea>
+          </div>
+
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-xl transition font-medium"
+            data-i18n="contact.submitBtn"
+          >
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="space-y-8">
+
+        <!-- OFFICE -->
+        <div class="glass rounded-3xl p-8">
+
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-blue-600/20 flex items-center justify-center">
+              <i data-lucide="map-pin"></i>
+            </div>
+
+            <div>
+              <h3
+                class="font-heading text-2xl font-semibold"
+                data-i18n="contact.officeTitle"
+              >
+                Office Address
+              </h3>
+
+              <p class="text-slate-400 mt-3">
+                Douala, Cameroon
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="glass rounded-3xl p-8">
+
+          <div class="space-y-6">
+
+            <div class="flex items-center gap-4">
+              <i data-lucide="phone"></i>
+              <span>+237 677 972 126</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <i data-lucide="mail"></i>
+              <span>vidbite3@gmail.com</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <i data-lucide="globe"></i>
+              <span>www.homescraper.com</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="glass rounded-3xl p-8">
+
+          <h3
+            class="font-heading text-2xl font-semibold"
+            data-i18n="contact.whatsappTitle"
+          >
+            WhatsApp Support
+          </h3>
+
+          <p
+            class="text-slate-400 mt-4"
+            data-i18n="contact.whatsappText"
+          >
+            Talk directly with our support team.
+          </p>
+
+          <a
+            href="#"
+            class="inline-flex mt-6 bg-green-600 hover:bg-green-700 px-6 py-4 rounded-xl transition"
+            data-i18n="contact.whatsappBtn"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+MAP SECTION
+========================= -->
+<section class="pb-24">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="rounded-3xl overflow-hidden border border-slate-800">
+
+      <iframe
+        src="https://maps.google.com/maps?q=douala&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        class="w-full h-[450px]"
+        loading="lazy"
+      ></iframe>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+FAQ SECTION
+========================= -->
+<section id="faq" class="pb-24">
+
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-16">
+
+      <h2
+        class="font-heading text-4xl font-bold"
+        data-i18n="faq.title"
+      >
+        Frequently Asked Questions
+      </h2>
+
+    </div>
+
+    <div class="space-y-6">
+
+      <div class="faq glass rounded-2xl p-6 cursor-pointer">
+
+        <div class="flex justify-between items-center">
+
+          <h3 data-i18n="faq.q1">
+            How long does website development take?
+          </h3>
+
+          <i data-lucide="plus"></i>
+        </div>
+
+        <div class="faq-content text-slate-400">
+          <p data-i18n="faq.a1">
+            Most projects are completed within 2 to 6 weeks depending on complexity.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq glass rounded-2xl p-6 cursor-pointer">
+
+        <div class="flex justify-between items-center">
+
+          <h3 data-i18n="faq.q2">
+            Do you offer SEO services?
+          </h3>
+
+          <i data-lucide="plus"></i>
+        </div>
+
+        <div class="faq-content text-slate-400">
+          <p data-i18n="faq.a2">
+            Yes. We provide advanced SEO optimization and ranking strategies.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq glass rounded-2xl p-6 cursor-pointer">
+
+        <div class="flex justify-between items-center">
+
+          <h3 data-i18n="faq.q3">
+            Do you install Starlink kits?
+          </h3>
+
+          <i data-lucide="plus"></i>
+        </div>
+
+        <div class="faq-content text-slate-400">
+          <p data-i18n="faq.a3">
+            Yes. We provide Starlink sales, setup, and professional installation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+<footer class="border-t border-slate-800 pt-24 pb-10">
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-4 gap-14">
+
+      <!-- BRAND -->
+      <div>
+
+        <div class="w-20 h-20 rounded-3xl bg-blue-600 flex items-center justify-center font-heading text-3xl font-bold">
+          TT
+        </div>
+
+        <h3 class="font-heading text-2xl font-bold mt-6">
+          TORA TECH
+        </h3>
+
+        <p
+          class="text-slate-400 mt-5 leading-relaxed"
+          data-i18n="footer.description"
+        >
+          Empowering businesses with premium technology solutions across Africa and worldwide.
+        </p>
+
+      </div>
+
+      <!-- SERVICES -->
+      <div>
+
+        <h4 class="font-heading text-lg font-semibold mb-6">
+          Services
+        </h4>
+
+        <ul class="space-y-4 text-slate-400">
+
+          <li>Software Development</li>
+          <li>SEO Optimization</li>
+          <li>Digital Marketing</li>
+          <li>Starlink Installation</li>
+          <li>Security Cameras</li>
+
+        </ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+
+        <h4 class="font-heading text-lg font-semibold mb-6">
+          Quick Links
+        </h4>
+
+        <ul class="space-y-4 text-slate-400">
+
+          <li>Home</li>
+          <li>About</li>
+          <li>Team</li>
+          <li>Portfolio</li>
+          <li>Contact</li>
+
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+
+        <h4 class="font-heading text-lg font-semibold mb-6">
+          Contact
+        </h4>
+
+        <div class="space-y-5 text-slate-400">
+
+          <p>Douala, Cameroon</p>
+
+          <p>+237 677 972 126</p>
+
+          <p>vidbite3@gmail.com</p>
+
+          <!-- SOCIALS -->
+          <div class="flex gap-4 pt-4">
+
+            <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="facebook"></i>
+            </a>
+
+            <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="instagram"></i>
+            </a>
+
+            <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-blue-600 transition">
+              <i data-lucide="linkedin"></i>
+            </a>
+
+          </div>
+
+          <!-- NEWSLETTER -->
+          <div class="pt-6">
+
+            <h5 class="font-medium mb-4">
+              Newsletter
+            </h5>
+
+            <div class="flex">
+
+              <input
+                type="email"
+                placeholder="Your email"
+                class="flex-1 bg-slate-900 border border-slate-700 rounded-l-xl px-4 py-3"
+              />
+
+              <button class="bg-blue-600 px-5 rounded-r-xl">
+                Join
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="border-t border-slate-800 mt-16 pt-8 text-center text-slate-500 text-sm">
+
+      © 2026 Tora Tech. All rights reserved.
+
+    </div>
+
+  </div>
+</footer>
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+<script>
+
+  lucide.createIcons();
+
+  // NAVBAR SCROLL
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 40){
+      navbar.classList.add("nav-scrolled");
+    } else {
+      navbar.classList.remove("nav-scrolled");
+    }
+  });
+
+  // MOBILE MENU
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // FAQ
+  document.querySelectorAll(".faq").forEach(faq => {
+    faq.addEventListener("click", () => {
+      faq.classList.toggle("active");
+    });
+  });
+
+  // =========================
+  // i18n
+  // =========================
+
+  const translations = {
+
+    en: {
+      "nav.home": "Home",
+      "nav.services": "Services",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.portfolio": "Portfolio",
+      "nav.testimonials": "Testimonials",
+      "nav.contact": "Contact",
+      "nav.cta": "Get Started",
+
+      "contact.heroTitle": "Let's Build The Future Together",
+      "contact.heroText": "Contact Tora Tech for premium technology solutions.",
+      "contact.heroBtn1": "Start Your Project",
+      "contact.heroBtn2": "Learn More",
+
+      "contact.formTitle": "Send Us a Message",
+      "contact.formText": "We usually respond within 24 hours.",
+      "contact.submitBtn": "Send Message",
+
+      "contact.officeTitle": "Office Address",
+
+      "contact.whatsappTitle": "WhatsApp Support",
+      "contact.whatsappText": "Talk directly with our support team.",
+      "contact.whatsappBtn": "Chat on WhatsApp",
+
+      "faq.title": "Frequently Asked Questions",
+      "faq.q1": "How long does website development take?",
+      "faq.a1": "Most projects are completed within 2 to 6 weeks depending on complexity.",
+      "faq.q2": "Do you offer SEO services?",
+      "faq.a2": "Yes. We provide advanced SEO optimization and ranking strategies.",
+      "faq.q3": "Do you install Starlink kits?",
+      "faq.a3": "Yes. We provide Starlink sales, setup, and professional installation.",
+
+      "footer.description": "Empowering businesses with premium technology solutions across Africa and worldwide."
+    },
+
+    fr: {
+      "nav.home": "Accueil",
+      "nav.services": "Services",
+      "nav.about": "À Propos",
+      "nav.team": "Équipe",
+      "nav.portfolio": "Portfolio",
+      "nav.testimonials": "Témoignages",
+      "nav.contact": "Contact",
+      "nav.cta": "Commencer",
+
+      "contact.heroTitle": "Construisons l'Avenir Ensemble",
+      "contact.heroText": "Contactez Tora Tech pour des solutions technologiques premium.",
+      "contact.heroBtn1": "Démarrer Votre Projet",
+      "contact.heroBtn2": "En Savoir Plus",
+
+      "contact.formTitle": "Envoyez-nous un Message",
+      "contact.formText": "Nous répondons généralement sous 24 heures.",
+      "contact.submitBtn": "Envoyer le Message",
+
+      "contact.officeTitle": "Adresse du Bureau",
+
+      "contact.whatsappTitle": "Support WhatsApp",
+      "contact.whatsappText": "Discutez directement avec notre équipe.",
+      "contact.whatsappBtn": "Discuter sur WhatsApp",
+
+      "faq.title": "Questions Fréquemment Posées",
+      "faq.q1": "Combien de temps prend le développement d’un site web ?",
+      "faq.a1": "La plupart des projets sont réalisés entre 2 et 6 semaines selon leur complexité.",
+      "faq.q2": "Proposez-vous des services SEO ?",
+      "faq.a2": "Oui. Nous proposons des stratégies avancées d’optimisation SEO.",
+      "faq.q3": "Installez-vous les kits Starlink ?",
+      "faq.a3": "Oui. Nous assurons la vente, la configuration et l’installation professionnelle de Starlink.",
+
+      "footer.description": "Nous accompagnons les entreprises avec des solutions technologiques premium en Afrique et à l’international."
+    }
+  };
+
+  function setLanguage(lang){
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+
+      const key = el.getAttribute("data-i18n");
+
+      if(translations[lang][key]){
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    localStorage.setItem("language", lang);
+  }
+
+  const languageSwitcher = document.getElementById("languageSwitcher");
+  const mobileLanguageSwitcher = document.getElementById("mobileLanguageSwitcher");
+
+  languageSwitcher.addEventListener("change", (e) => {
+    setLanguage(e.target.value);
+  });
+
+  mobileLanguageSwitcher.addEventListener("change", (e) => {
+    setLanguage(e.target.value);
+  });
+
+  const savedLanguage = localStorage.getItem("language") || "en";
+
+  languageSwitcher.value = savedLanguage;
+  mobileLanguageSwitcher.value = savedLanguage;
+
+  setLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>

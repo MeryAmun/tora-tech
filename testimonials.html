@@ -1,0 +1,795 @@
+<!-- testimonials.html -->
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tora Tech | Testimonials</title>
+
+  <meta
+    name="description"
+    content="Read client testimonials from businesses and professionals who trusted Tora Tech for software development, SEO, digital marketing, Starlink installation, training, and security solutions."
+  />
+
+  <meta
+    name="keywords"
+    content="Tora Tech testimonials, software development Cameroon, SEO Cameroon, digital marketing Cameroon, Starlink installation Cameroon, CCTV installation Cameroon"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            darkbg: "#050816",
+            card: "#0d1324",
+            borderGlow: "rgba(255,255,255,0.08)",
+          },
+          fontFamily: {
+            heading: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, rgba(37,99,235,0.18), transparent 40%),
+        #050816;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-scrolled {
+      background: rgba(5, 8, 22, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .testimonial-card {
+      transition: 0.4s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: 0 20px 60px rgba(37,99,235,0.12);
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #ffffff, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="font-body text-white">
+
+  <!-- NAVBAR -->
+  <header
+    id="navbar"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  >
+    <div
+      class="max-w-7xl mx-auto px-6 lg:px-10"
+    >
+      <div class="flex items-center justify-between h-20">
+
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center font-heading font-bold text-xl"
+          >
+            T
+          </div>
+
+          <div>
+            <h2 class="font-heading font-bold text-xl tracking-wide">
+              Tora Tech
+            </h2>
+          </div>
+        </a>
+
+        <!-- DESKTOP NAV -->
+        <nav class="hidden lg:flex items-center gap-8">
+
+          <a href="index.html" class="hover:text-blue-400 transition" data-i18n="nav.home">
+            Home
+          </a>
+
+          <a href="services.html" class="hover:text-blue-400 transition" data-i18n="nav.services">
+            Services
+          </a>
+
+          <a href="about.html" class="hover:text-blue-400 transition" data-i18n="nav.about">
+            About
+          </a>
+
+          <a href="team.html" class="hover:text-blue-400 transition" data-i18n="nav.team">
+            Team
+          </a>
+
+          <a href="portfolio.html" class="hover:text-blue-400 transition" data-i18n="nav.portfolio">
+            Portfolio
+          </a>
+
+          <a href="testimonials.html" class="text-blue-400" data-i18n="nav.testimonials">
+            Testimonials
+          </a>
+
+          <a href="contact.html" class="hover:text-blue-400 transition" data-i18n="nav.contact">
+            Contact
+          </a>
+
+        </nav>
+
+        <!-- RIGHT -->
+        <div class="hidden lg:flex items-center gap-4">
+
+          <!-- LANG -->
+          <button
+            id="langToggle"
+            class="glass px-4 py-2 rounded-full text-sm hover:border-blue-500 transition"
+          >
+            FR
+          </button>
+
+          <!-- CTA -->
+          <a
+            href="contact.html"
+            class="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-full font-medium"
+            data-i18n="nav.cta"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- MOBILE BUTTON -->
+        <button id="mobileBtn" class="lg:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div
+      id="mobileMenu"
+      class="hidden lg:hidden glass border-t border-white/10"
+    >
+      <div class="px-6 py-6 flex flex-col gap-5">
+
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="team.html" data-i18n="nav.team">Team</a>
+        <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="testimonials.html" data-i18n="nav.testimonials">Testimonials</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+
+        <button
+          id="mobileLang"
+          class="border border-white/10 rounded-full py-3"
+        >
+          Français
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pt-44 pb-24 px-6">
+
+    <div class="max-w-5xl mx-auto text-center fade-up">
+
+      <span
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm mb-8"
+      >
+        <i data-lucide="star"></i>
+        <span data-i18n="hero.badge">
+          Trusted by businesses across Africa
+        </span>
+      </span>
+
+      <h1
+        class="font-heading text-5xl md:text-7xl font-bold leading-tight gradient-text"
+        data-i18n="hero.title"
+      >
+        Real Results. Real Clients.
+      </h1>
+
+      <p
+        class="text-white/70 text-lg mt-8 max-w-3xl mx-auto leading-8"
+        data-i18n="hero.description"
+      >
+        Discover how businesses and professionals trust Tora Tech for
+        software development, digital growth, Starlink solutions,
+        training, and enterprise technology services.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="pb-28 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <!-- CATEGORY -->
+      <div class="mb-16 fade-up">
+        <div class="flex items-center gap-3 mb-10">
+          <div class="w-2 h-10 bg-blue-500 rounded-full"></div>
+
+          <h2
+            class="font-heading text-3xl font-bold"
+            data-i18n="categories.software"
+          >
+            Software Development
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+          <!-- CARD -->
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+
+              <img
+                src="assets/images/client1.jpg"
+                alt="Client"
+                class="w-16 h-16 rounded-full object-cover"
+              />
+
+              <div>
+                <h3 class="font-semibold">Merveille Ndzi</h3>
+                <p class="text-white/60 text-sm">
+                  CEO — Moda Online Store
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 text-blue-400 mb-5">
+              ★★★★★
+            </div>
+
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t1"
+            >
+              Tora Tech transformed our business website into a premium
+              ecommerce platform. Their professionalism and speed were
+              outstanding.
+            </p>
+          </div>
+
+          <!-- CARD -->
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+
+              <img
+                src="assets/images/client2.jpg"
+                alt="Client"
+                class="w-16 h-16 rounded-full object-cover"
+              />
+
+              <div>
+                <h3 class="font-semibold">Brenda Atanga</h3>
+                <p class="text-white/60 text-sm">
+                  Founder — HomeScraper
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 text-blue-400 mb-5">
+              ★★★★★
+            </div>
+
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t2"
+            >
+              Their UI/UX quality is world class. The responsiveness and
+              SEO optimization exceeded our expectations.
+            </p>
+          </div>
+
+          <!-- CARD -->
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+
+              <img
+                src="assets/images/client3.jpg"
+                alt="Client"
+                class="w-16 h-16 rounded-full object-cover"
+              />
+
+              <div>
+                <h3 class="font-semibold">Lionel Mbah</h3>
+                <p class="text-white/60 text-sm">
+                  Director — Virtual Pro Gaming
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-1 text-blue-400 mb-5">
+              ★★★★★
+            </div>
+
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t3"
+            >
+              The Tora Tech team delivered a fast, modern platform that
+              gave our company a stronger digital presence.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DIGITAL MARKETING -->
+      <div class="mb-16 fade-up">
+
+        <div class="flex items-center gap-3 mb-10">
+          <div class="w-2 h-10 bg-blue-500 rounded-full"></div>
+
+          <h2
+            class="font-heading text-3xl font-bold"
+            data-i18n="categories.marketing"
+          >
+            Digital Marketing
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t4"
+            >
+              Their SEO strategy helped us rank higher on Google and
+              increase customer inquiries within weeks.
+            </p>
+          </div>
+
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t5"
+            >
+              Tora Tech's marketing campaigns brought measurable growth
+              and significantly improved our online visibility.
+            </p>
+          </div>
+
+          <div class="testimonial-card glass rounded-3xl p-8">
+            <p
+              class="text-white/70 leading-8"
+              data-i18n="testimonials.t6"
+            >
+              Their team understands modern digital branding and African
+              business audiences perfectly.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-28 px-6">
+
+    <div
+      class="max-w-6xl mx-auto glass rounded-[40px] p-12 md:p-20 text-center fade-up"
+    >
+
+      <h2
+        class="font-heading text-4xl md:text-5xl font-bold mb-8"
+        data-i18n="cta.title"
+      >
+        Let’s Build Something Exceptional
+      </h2>
+
+      <p
+        class="text-white/70 text-lg max-w-2xl mx-auto mb-10"
+        data-i18n="cta.description"
+      >
+        Partner with Tora Tech for modern software, marketing, training,
+        and enterprise technology solutions.
+      </p>
+
+      <a
+        href="contact.html"
+        class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 transition px-8 py-4 rounded-full font-medium"
+        data-i18n="cta.button"
+      >
+        Contact Us
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 pt-24 pb-10 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-5 gap-16">
+
+        <!-- BRAND -->
+        <div class="lg:col-span-2">
+
+          <div
+            class="w-24 h-24 rounded-3xl bg-blue-600 flex items-center justify-center text-5xl font-bold font-heading mb-8"
+          >
+            T
+          </div>
+
+          <h2 class="font-heading text-3xl font-bold mb-6">
+            Tora Tech
+          </h2>
+
+          <p
+            class="text-white/65 leading-8 max-w-md"
+            data-i18n="footer.description"
+          >
+            Premium technology solutions for businesses across Africa.
+            We build software, digital platforms, enterprise systems,
+            and modern online experiences.
+          </p>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+
+          <h3
+            class="font-heading font-semibold text-xl mb-6"
+            data-i18n="footer.quick"
+          >
+            Quick Links
+          </h3>
+
+          <div class="space-y-4 text-white/70">
+
+            <a href="index.html" class="block hover:text-blue-400 transition">
+              Home
+            </a>
+
+            <a href="services.html" class="block hover:text-blue-400 transition">
+              Services
+            </a>
+
+            <a href="about.html" class="block hover:text-blue-400 transition">
+              About
+            </a>
+
+            <a href="contact.html" class="block hover:text-blue-400 transition">
+              Contact
+            </a>
+
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div>
+
+          <h3
+            class="font-heading font-semibold text-xl mb-6"
+            data-i18n="footer.services"
+          >
+            Services
+          </h3>
+
+          <div class="space-y-4 text-white/70">
+
+            <p>Software Development</p>
+            <p>SEO Optimization</p>
+            <p>Digital Marketing</p>
+            <p>Starlink Installation</p>
+            <p>Security Cameras</p>
+
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div>
+
+          <h3
+            class="font-heading font-semibold text-xl mb-6"
+            data-i18n="footer.contact"
+          >
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-white/70">
+
+            <p>Douala, Cameroon</p>
+            <p>+237 677 972 126</p>
+            <p>vidbite3@gmail.com</p>
+
+            <!-- SOCIAL -->
+            <div class="flex gap-4 pt-4">
+
+              <a
+                href="#"
+                class="w-11 h-11 rounded-full glass flex items-center justify-center hover:border-blue-500 transition"
+              >
+                <i data-lucide="facebook"></i>
+              </a>
+
+              <a
+                href="#"
+                class="w-11 h-11 rounded-full glass flex items-center justify-center hover:border-blue-500 transition"
+              >
+                <i data-lucide="instagram"></i>
+              </a>
+
+              <a
+                href="#"
+                class="w-11 h-11 rounded-full glass flex items-center justify-center hover:border-blue-500 transition"
+              >
+                <i data-lucide="linkedin"></i>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div
+        class="mt-20 glass rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row gap-6 items-center justify-between"
+      >
+
+        <div>
+          <h3
+            class="font-heading text-2xl font-bold mb-3"
+            data-i18n="footer.newsletter"
+          >
+            Subscribe to our newsletter
+          </h3>
+
+          <p class="text-white/60">
+            Stay updated with technology trends and startup insights.
+          </p>
+        </div>
+
+        <form class="flex w-full lg:w-auto gap-4">
+
+          <input
+            type="email"
+            placeholder="Email address"
+            class="bg-white/5 border border-white/10 rounded-full px-6 py-4 w-full lg:w-80 outline-none focus:border-blue-500"
+          />
+
+          <button
+            class="bg-blue-600 hover:bg-blue-700 transition px-8 rounded-full"
+          >
+            Subscribe
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div
+        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-6"
+      >
+
+        <p class="text-white/50 text-sm">
+          © 2026 Tora Tech. All rights reserved.
+        </p>
+
+        <p class="text-white/40 text-sm">
+          Designed for modern African innovation.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+
+    lucide.createIcons();
+
+    // NAV SCROLL
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 20){
+        navbar.classList.add("nav-scrolled");
+      } else {
+        navbar.classList.remove("nav-scrolled");
+      }
+    });
+
+    // MOBILE MENU
+    const mobileBtn = document.getElementById("mobileBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // SCROLL ANIMATION
+    const fadeElements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+      });
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // I18N
+    const translations = {
+      en: {
+        "nav.home": "Home",
+        "nav.services": "Services",
+        "nav.about": "About",
+        "nav.team": "Team",
+        "nav.portfolio": "Portfolio",
+        "nav.testimonials": "Testimonials",
+        "nav.contact": "Contact",
+        "nav.cta": "Get Started",
+
+        "hero.badge": "Trusted by businesses across Africa",
+        "hero.title": "Real Results. Real Clients.",
+        "hero.description":
+          "Discover how businesses and professionals trust Tora Tech for software development, digital growth, Starlink solutions, training, and enterprise technology services.",
+
+        "categories.software": "Software Development",
+        "categories.marketing": "Digital Marketing",
+
+        "cta.title": "Let’s Build Something Exceptional",
+        "cta.description":
+          "Partner with Tora Tech for modern software, marketing, training, and enterprise technology solutions.",
+        "cta.button": "Contact Us",
+
+        "footer.description":
+          "Premium technology solutions for businesses across Africa.",
+        "footer.quick": "Quick Links",
+        "footer.services": "Services",
+        "footer.contact": "Contact",
+        "footer.newsletter": "Subscribe to our newsletter",
+
+        "testimonials.t1":
+          "Tora Tech transformed our business website into a premium ecommerce platform.",
+        "testimonials.t2":
+          "Their UI/UX quality is world class and highly professional.",
+        "testimonials.t3":
+          "The Tora Tech team delivered a fast, modern platform.",
+        "testimonials.t4":
+          "Their SEO strategy helped us rank higher on Google.",
+        "testimonials.t5":
+          "Their campaigns brought measurable business growth.",
+        "testimonials.t6":
+          "Their team understands modern African digital branding."
+      },
+
+      fr: {
+        "nav.home": "Accueil",
+        "nav.services": "Services",
+        "nav.about": "À propos",
+        "nav.team": "Équipe",
+        "nav.portfolio": "Portfolio",
+        "nav.testimonials": "Témoignages",
+        "nav.contact": "Contact",
+        "nav.cta": "Commencer",
+
+        "hero.badge": "Approuvé par des entreprises à travers l’Afrique",
+        "hero.title": "De vrais résultats. De vrais clients.",
+        "hero.description":
+          "Découvrez pourquoi les entreprises font confiance à Tora Tech pour le développement logiciel, le marketing digital, Starlink et les solutions technologiques.",
+
+        "categories.software": "Développement Logiciel",
+        "categories.marketing": "Marketing Digital",
+
+        "cta.title": "Construisons quelque chose d’exceptionnel",
+        "cta.description":
+          "Collaborez avec Tora Tech pour des solutions technologiques modernes.",
+        "cta.button": "Nous contacter",
+
+        "footer.description":
+          "Solutions technologiques premium pour les entreprises africaines.",
+        "footer.quick": "Liens rapides",
+        "footer.services": "Services",
+        "footer.contact": "Contact",
+        "footer.newsletter": "Abonnez-vous à notre newsletter",
+
+        "testimonials.t1":
+          "Tora Tech a transformé notre site en une plateforme ecommerce premium.",
+        "testimonials.t2":
+          "La qualité UI/UX est professionnelle et moderne.",
+        "testimonials.t3":
+          "L’équipe Tora Tech a livré une plateforme rapide et moderne.",
+        "testimonials.t4":
+          "Leur stratégie SEO a amélioré notre visibilité Google.",
+        "testimonials.t5":
+          "Leurs campagnes ont apporté une croissance mesurable.",
+        "testimonials.t6":
+          "Leur équipe maîtrise parfaitement le branding digital africain."
+      }
+    };
+
+    function applyTranslations(lang){
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = translations[lang][key];
+      });
+
+      localStorage.setItem("lang", lang);
+    }
+
+    const langToggle = document.getElementById("langToggle");
+
+    let currentLang = localStorage.getItem("lang") || "en";
+
+    applyTranslations(currentLang);
+
+    langToggle.addEventListener("click", () => {
+
+      currentLang = currentLang === "en" ? "fr" : "en";
+
+      langToggle.innerText = currentLang === "en" ? "FR" : "EN";
+
+      applyTranslations(currentLang);
+    });
+
+  </script>
+
+</body>
+</html>

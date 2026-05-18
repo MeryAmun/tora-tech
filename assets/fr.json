@@ -1,0 +1,88 @@
+
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "team": "Équipe",
+    "portfolio": "Portfolio",
+    "testimonials": "Témoignages",
+    "contact": "Contact",
+    "cta": "Commencer",
+    "language": "Langue"
+  },
+
+  "contactHero": {
+    "badge": "Contacter Tora Tech",
+    "title": "Construisons Ensemble des Solutions Numériques Innovantes",
+    "subtitle": "Du développement logiciel au marketing digital, en passant par l’installation Starlink et les systèmes de sécurité, Tora Tech accompagne les entreprises du Cameroun et d’ailleurs avec des solutions technologiques modernes.",
+    "buttonPrimary": "Contacter Notre Équipe",
+    "buttonSecondary": "Voir les Services"
+  },
+
+  "contactForm": {
+    "title": "Envoyez-nous un Message",
+    "subtitle": "Parlez-nous de votre projet ou de vos besoins et notre équipe vous répondra rapidement.",
+    "name": "Nom Complet",
+    "email": "Adresse Email",
+    "phone": "Numéro de Téléphone",
+    "service": "Sélectionnez un Service",
+    "message": "Votre Message",
+    "submit": "Envoyer le Message",
+    "placeholderMessage": "Parlez-nous de votre projet..."
+  },
+
+  "services": {
+    "software": "Développement Logiciel",
+    "website": "Gestion de Sites Web",
+    "seo": "Optimisation SEO",
+    "marketing": "Marketing Digital",
+    "trainingSoftware": "Formation en Développement Logiciel",
+    "trainingMarketing": "Formation en Marketing Digital",
+    "starlink": "Installation Starlink",
+    "camera": "Installation de Caméras de Surveillance"
+  },
+
+  "office": {
+    "title": "Informations du Bureau",
+    "locationTitle": "Localisation",
+    "location": "Douala, Cameroun",
+    "emailTitle": "Adresse Email",
+    "phoneTitle": "Numéro de Téléphone",
+    "hoursTitle": "Heures d’Ouverture",
+    "hours": "Lundi - Samedi | 08h00 - 18h00"
+  },
+
+  "whatsapp": {
+    "title": "Besoin d’une Réponse Rapide ?",
+    "subtitle": "Discutez directement avec notre équipe sur WhatsApp pour une assistance rapide et des conseils personnalisés.",
+    "button": "Discuter sur WhatsApp"
+  },
+
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "q1": "Quels services propose Tora Tech ?",
+    "a1": "Nous proposons des services de développement logiciel, gestion de sites web, optimisation SEO, marketing digital, installation Starlink, formations professionnelles et installation de caméras de surveillance.",
+
+    "q2": "Travaillez-vous avec des clients internationaux ?",
+    "a2": "Oui. Tora Tech collabore avec des entreprises et entrepreneurs au Cameroun, en Afrique et à l’international.",
+
+    "q3": "Puis-je demander une solution logicielle personnalisée ?",
+    "a3": "Absolument. Nous créons des solutions numériques adaptées aux objectifs et besoins spécifiques de votre entreprise.",
+
+    "q4": "Proposez-vous des formations pour débutants ?",
+    "a4": "Oui. Nous proposons des formations adaptées aux débutants et aux professionnels en développement logiciel et marketing digital."
+  },
+
+  "footer": {
+    "description": "Tora Tech accompagne les entreprises grâce à des solutions technologiques modernes incluant le développement logiciel, le marketing digital, l’installation Starlink, le SEO et les systèmes de sécurité.",
+    "quickLinks": "Liens Rapides",
+    "services": "Services",
+    "contact": "Contact",
+    "newsletterTitle": "Abonnez-vous à Notre Newsletter",
+    "newsletterSubtitle": "Recevez des mises à jour sur les tendances technologiques et les stratégies de croissance digitale.",
+    "newsletterPlaceholder": "Entrez votre adresse email",
+    "newsletterButton": "S’abonner",
+    "copyright": "© 2026 Tora Tech. Tous droits réservés."
+  }
+}
