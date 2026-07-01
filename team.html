@@ -14,14 +14,21 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link rel="icon" href="public/favicon.ico" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lucide Icons -->
+  <!-- Lucide -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 
   <script>
     tailwind.config = {
@@ -43,41 +50,159 @@
   </script>
 
   <style>
+
     html{
       scroll-behavior:smooth;
     }
 
     body{
-      background:#020617;
+      background:#050816;
+      color:white;
       overflow-x:hidden;
     }
 
     .glass{
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(14px);
+      background:rgba(15,23,42,0.55);
+      backdrop-filter:blur(14px);
       border:1px solid rgba(255,255,255,0.08);
     }
 
+    .nav-scrolled{
+      background:rgba(7,17,31,0.82);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .hover-link{
+      position:relative;
+    }
+
+    .hover-link::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      left:0;
+      bottom:-4px;
+      background:#3b82f6;
+      transition:0.3s;
+    }
+
+    .hover-link:hover::after{
+      width:100%;
+    }
+
     .team-card:hover .team-img{
-      transform: scale(1.05);
+      transform:scale(1.05);
     }
 
     .team-card:hover{
-      transform: translateY(-8px);
-      border-color: rgba(59,130,246,0.4);
-      box-shadow: 0 20px 40px rgba(59,130,246,0.12);
+      transform:translateY(-8px);
+      border-color:rgba(59,130,246,0.4);
+      box-shadow:0 20px 40px rgba(59,130,246,0.12);
     }
 
     .gradient-text{
-      background: linear-gradient(to right,#ffffff,#60A5FA);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+      background:linear-gradient(to right,#ffffff,#60A5FA);
+     background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     }
 
     .hero-overlay{
       background:
       linear-gradient(to bottom, rgba(2,6,23,.75), rgba(2,6,23,.95));
     }
+
+    /* ========================= */
+    /* FIXED FADE-UP ANIMATION */
+    /* ========================= */
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(60px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+      will-change:transform, opacity;
+    }
+
+    .fade-up.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* WhatsApp */
+
+    .whatsapp-float{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:64px;
+      height:64px;
+      border-radius:9999px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:linear-gradient(
+        135deg,
+        #25d366,
+        #1ebe5d
+      );
+
+      color:white;
+      font-size:2rem;
+
+      box-shadow:
+        0 10px 25px rgba(37, 211, 102, 0.35),
+        0 0 0 8px rgba(37, 211, 102, 0.08);
+
+      z-index:9999;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+
+      animation:whatsappPulse 2.5s infinite;
+    }
+
+    .whatsapp-float:hover{
+      transform:translateY(-6px) scale(1.08);
+
+      box-shadow:
+        0 16px 35px rgba(37, 211, 102, 0.45),
+        0 0 0 10px rgba(37, 211, 102, 0.12);
+    }
+
+    @keyframes whatsappPulse{
+      0%{
+        box-shadow:0 0 0 0 rgba(37, 211, 102, 0.45);
+      }
+
+      70%{
+        box-shadow:0 0 0 18px rgba(37, 211, 102, 0);
+      }
+
+      100%{
+        box-shadow:0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    @media (max-width:640px){
+
+      .whatsapp-float{
+        width:58px;
+        height:58px;
+        font-size:1.8rem;
+        right:18px;
+        bottom:18px;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -95,47 +220,49 @@
       <div class="flex items-center justify-between h-20">
 
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-3">
 
-          <div class="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center font-heading font-bold text-lg">
-            T
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center">
+            <img src="/images/icon.jpg" class="rounded-2xl" alt="Tora Tech Logo">
           </div>
 
-          <div>
-            <h2 class="font-heading font-bold text-xl tracking-wide">
-              TORA TECH
-            </h2>
-
-            <p class="text-xs text-slate-400">
-              Smart Technology Solutions
-            </p>
-          </div>
         </a>
 
         <!-- Desktop Menu -->
         <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
-          <a href="/" class="hover:text-blue-400 transition" data-i18n="home">Home</a>
-          <a href="/services.html" class="hover:text-blue-400 transition" data-i18n="services">Services</a>
-          <a href="/about.html" class="hover:text-blue-400 transition" data-i18n="about">About</a>
-          <a href="/team.html" class="hover:text-blue-400 transition" data-i18n="team">Team</a>
-          <a href="/portfolio.html" class="hover:text-blue-400 transition" data-i18n="portfolio">Portfolio</a>
-          <a href="/testimonials.html" class="hover:text-blue-400 transition" data-i18n="testimonials">Testimonials</a>
-          <a href="/contact.html" class="hover:text-blue-400 transition" data-i18n="contact">Contact</a>
+
+          <a href="/" class="hover:text-blue-400 transition hover-link" data-i18n="nav.home">Home</a>
+
+          <a href="/services.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.services">Services</a>
+
+          <a href="/about.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.about">About</a>
+
+          <a href="/team.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.team">Team</a>
+
+          <a href="/portfolio.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.portfolio">Portfolio</a>
+
+          <a href="/testimonials.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.testimonials">Testimonials</a>
+
+          <a href="/contact.html" class="hover:text-blue-400 transition hover-link" data-i18n="nav.contact">Contact</a>
+
         </nav>
 
         <!-- Right -->
-        <div class="hidden lg:flex items-center gap-4">
+          <div class="hidden lg:flex items-center gap-4">
 
-          <!-- Language Switch -->
           <div class="glass rounded-full p-1 flex items-center">
 
-            <button id="enBtn"
-              class="lang-btn px-4 py-2 rounded-full text-sm bg-blue-600">
+            <button
+              onclick="setLanguage('en')"
+              class="px-3 py-1 text-sm rounded-full hover:bg-white/10"
+            >
               EN
             </button>
 
-            <button id="frBtn"
-              class="lang-btn px-4 py-2 rounded-full text-sm text-slate-300">
+            <button
+              onclick="setLanguage('fr')"
+              class="px-3 py-1 text-sm rounded-full hover:bg-white/10"
+            >
               FR
             </button>
 
@@ -143,7 +270,8 @@
 
           <!-- CTA -->
           <button
-            class="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-300 font-medium shadow-lg shadow-blue-500/20">
+            class="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-300 font-medium shadow-lg shadow-blue-500/20"
+            data-i18n="nav.cta">
 
             Start Project
 
@@ -152,11 +280,8 @@
         </div>
 
         <!-- Mobile Toggle -->
-        <button id="menuBtn"
-          class="lg:hidden text-white">
-
+        <button id="menuBtn" class="lg:hidden text-white">
           <i data-lucide="menu"></i>
-
         </button>
 
       </div>
@@ -168,30 +293,33 @@
 
       <div class="px-6 py-6 flex flex-col gap-5">
 
-        <a href="/">Home</a>
-        <a href="/services.html">Services</a>
-        <a href="/about.html">About</a>
-        <a href="/team.html">Team</a>
-        <a href="/portfolio.html">Portfolio</a>
-        <a href="/testimonials.html">Testimonials</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/services.html" data-i18n="nav.services">Services</a>
+        <a href="/about.html" data-i18n="nav.about">About</a>
+        <a href="/team.html" data-i18n="nav.team">Team</a>
+        <a href="/portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="/testimonials.html" data-i18n="nav.testimonials">Testimonials</a>
+        <a href="/contact.html" data-i18n="nav.contact">Contact</a>
 
         <div class="flex gap-3 pt-4">
 
-          <button class="bg-blue-600 px-4 py-2 rounded-full text-sm">
+          <button id="mobileEnBtn"
+            class="bg-blue-600 px-4 py-2 rounded-full text-sm">
             EN
           </button>
 
-          <button class="glass px-4 py-2 rounded-full text-sm">
+          <button id="mobileFrBtn"
+            class="glass px-4 py-2 rounded-full text-sm">
             FR
           </button>
 
         </div>
 
         <button
-          class="mt-4 w-full py-3 rounded-full bg-blue-600 hover:bg-blue-500 transition">
+          class="mt-4 w-full py-3 rounded-full bg-blue-600 hover:bg-blue-500 transition"
+          data-i18n="nav.cta">
 
-          Start Project
+          Launch Project
 
         </button>
 
@@ -200,9 +328,7 @@
 
   </nav>
 
-  <!-- ========================= -->
-  <!-- HERO SECTION -->
-  <!-- ========================= -->
+  <!-- HERO -->
 
   <section
     class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -225,29 +351,35 @@
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-5xl px-6 text-center">
+    <div class="relative z-10 max-w-5xl px-6 text-center fade-up">
 
       <span
         class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-sm mb-8">
 
         <span class="w-2 h-2 rounded-full bg-blue-400"></span>
 
-        Professional African Technology Experts
+        <span data-i18n="hero.badge">
+          Professional African Technology Experts
+        </span>
 
       </span>
 
       <h1
         class="font-heading text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
 
-        Meet The
-        <span class="gradient-text">
+        <span data-i18n="hero.title1">
+          Meet The
+        </span>
+
+        <span class="gradient-text" data-i18n="hero.title2">
           Tora Tech Team
         </span>
 
       </h1>
 
       <p
-        class="max-w-3xl mx-auto text-slate-300 text-lg md:text-xl leading-relaxed">
+        class="max-w-3xl mx-auto text-slate-300 text-lg md:text-xl leading-relaxed"
+        data-i18n="hero.description">
 
         A team of experienced software engineers, digital strategists,
         designers, trainers, and infrastructure specialists helping
@@ -259,33 +391,38 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- TEAM SECTION -->
-  <!-- ========================= -->
+  <!-- TEAM -->
 
-  <section class="py-28 px-6">
+  <section class="py-28 px-6 fade-up">
 
     <div class="max-w-7xl mx-auto">
 
-      <!-- Section Heading -->
-      <div class="text-center mb-20">
+      <!-- Heading -->
+      <div class="text-center mb-20 fade-up">
 
-        <span class="text-blue-400 font-medium tracking-widest uppercase text-sm">
+        <span class="text-blue-400 font-medium tracking-widest uppercase text-sm"
+          data-i18n="teamSection.badge">
+
           Our Leadership
+
         </span>
 
         <h2
           class="font-heading text-4xl md:text-5xl font-bold mt-4 mb-6">
 
-          The People Behind
-          <span class="gradient-text">
+          <span data-i18n="teamSection.title1">
+            The People Behind
+          </span>
+
+          <span class="gradient-text" data-i18n="teamSection.title2">
             Tora Tech
           </span>
 
         </h2>
 
         <p
-          class="max-w-3xl mx-auto text-slate-400 text-lg leading-relaxed">
+          class="max-w-3xl mx-auto text-slate-400 text-lg leading-relaxed"
+          data-i18n="teamSection.description">
 
           Passionate professionals combining technology, creativity,
           innovation, and enterprise expertise to deliver modern digital
@@ -301,7 +438,7 @@
 
         <!-- MEMBER 1 -->
         <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
+          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
 
           <div class="overflow-hidden">
 
@@ -318,13 +455,16 @@
               Brandon Ndzi
             </h3>
 
-            <p class="text-blue-400 mb-4">
+            <p class="text-blue-400 mb-4"
+              data-i18n="members.ceo.role">
               Founder & CEO
             </p>
 
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Leads company strategy, innovation, and enterprise growth
-              initiatives across technology and infrastructure services.
+            <p class="text-slate-400 leading-relaxed text-sm"
+              data-i18n="members.ceo.bio">
+
+              Leads company strategy, innovation, and enterprise growth initiatives.
+
             </p>
 
           </div>
@@ -333,14 +473,14 @@
 
         <!-- MEMBER 2 -->
         <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
+          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
 
           <div class="overflow-hidden">
 
             <img
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop"
               class="team-img w-full h-80 object-cover transition duration-700"
-              alt="UI UX Designer">
+              alt="Designer">
 
           </div>
 
@@ -350,173 +490,16 @@
               Vanessa Tata
             </h3>
 
-            <p class="text-blue-400 mb-4">
+            <p class="text-blue-400 mb-4"
+              data-i18n="members.designer.role">
               Lead UI/UX Designer
             </p>
 
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Designs premium user experiences and elegant digital
-              interfaces optimized for modern African businesses.
-            </p>
+            <p class="text-slate-400 leading-relaxed text-sm"
+              data-i18n="members.designer.bio">
 
-          </div>
+              Designs premium digital experiences for modern African businesses.
 
-        </div>
-
-        <!-- MEMBER 3 -->
-        <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
-
-          <div class="overflow-hidden">
-
-            <img
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop"
-              class="team-img w-full h-80 object-cover transition duration-700"
-              alt="Developer">
-
-          </div>
-
-          <div class="p-7">
-
-            <h3 class="font-heading text-2xl font-semibold mb-2">
-              Michael Neba
-            </h3>
-
-            <p class="text-blue-400 mb-4">
-              Senior Software Engineer
-            </p>
-
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Specializes in scalable web applications, backend systems,
-              cloud deployment, and software architecture.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- MEMBER 4 -->
-        <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
-
-          <div class="overflow-hidden">
-
-            <img
-              src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200&auto=format&fit=crop"
-              class="team-img w-full h-80 object-cover transition duration-700"
-              alt="Marketing Specialist">
-
-          </div>
-
-          <div class="p-7">
-
-            <h3 class="font-heading text-2xl font-semibold mb-2">
-              Ruth Enow
-            </h3>
-
-            <p class="text-blue-400 mb-4">
-              Digital Marketing Strategist
-            </p>
-
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Helps brands increase online visibility through SEO,
-              advertising campaigns, and social media growth.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- MEMBER 5 -->
-        <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
-
-          <div class="overflow-hidden">
-
-            <img
-              src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop"
-              class="team-img w-full h-80 object-cover transition duration-700"
-              alt="SEO Specialist">
-
-          </div>
-
-          <div class="p-7">
-
-            <h3 class="font-heading text-2xl font-semibold mb-2">
-              Daniel Mbua
-            </h3>
-
-            <p class="text-blue-400 mb-4">
-              SEO & Analytics Expert
-            </p>
-
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Optimizes business visibility with advanced keyword strategy,
-              analytics, technical SEO, and search performance.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- MEMBER 6 -->
-        <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
-
-          <div class="overflow-hidden">
-
-            <img
-              src="https://images.unsplash.com/photo-1542204625-de293a2f8ff0?q=80&w=1200&auto=format&fit=crop"
-              class="team-img w-full h-80 object-cover transition duration-700"
-              alt="Starlink Technician">
-
-          </div>
-
-          <div class="p-7">
-
-            <h3 class="font-heading text-2xl font-semibold mb-2">
-              Emmanuel Tabe
-            </h3>
-
-            <p class="text-blue-400 mb-4">
-              Starlink Infrastructure Specialist
-            </p>
-
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Oversees Starlink deployment, internet optimization,
-              connectivity testing, and installation support.
-            </p>
-
-          </div>
-
-        </div>
-
-        <!-- MEMBER 7 -->
-        <div
-          class="team-card glass rounded-3xl overflow-hidden transition-all duration-500">
-
-          <div class="overflow-hidden">
-
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop"
-              class="team-img w-full h-80 object-cover transition duration-700"
-              alt="Security Engineer">
-
-          </div>
-
-          <div class="p-7">
-
-            <h3 class="font-heading text-2xl font-semibold mb-2">
-              Grace Atabong
-            </h3>
-
-            <p class="text-blue-400 mb-4">
-              Security Systems Engineer
-            </p>
-
-            <p class="text-slate-400 leading-relaxed text-sm">
-              Handles surveillance systems, smart security infrastructure,
-              CCTV deployments, and monitoring solutions.
             </p>
 
           </div>
@@ -524,16 +507,325 @@
         </div>
 
       </div>
+      <!-- ========================= -->
+<!-- TEAM GRID -->
+<!-- ========================= -->
+
+<div
+  class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+  <!-- MEMBER 1 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="CEO">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Brandon Ndzi
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.ceo.role">
+        Founder & CEO
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.ceo.bio">
+
+        Leads company strategy, innovation, and enterprise growth initiatives.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 2 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="Designer">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Vanessa Tata
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.designer.role">
+        Lead UI/UX Designer
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.designer.bio">
+
+        Designs premium digital experiences for modern African businesses.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 3 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="Software Engineer">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Michael Neba
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.engineer.role">
+        Senior Software Engineer
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.engineer.bio">
+
+        Builds scalable web applications, backend systems, and cloud infrastructure.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 4 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="Marketing Strategist">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Ruth Enow
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.marketer.role">
+        Digital Marketing Strategist
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.marketer.bio">
+
+        Helps businesses grow online visibility through SEO and digital campaigns.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 5 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="SEO Specialist">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Daniel Mbua
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.seo.role">
+        SEO & Analytics Expert
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.seo.bio">
+
+        Optimizes search visibility using analytics, technical SEO, and content strategy.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 6 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1542204625-de293a2f8ff0?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="Starlink Specialist">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Emmanuel Tabe
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.starlink.role">
+        Starlink Infrastructure Specialist
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.starlink.bio">
+
+        Oversees Starlink deployment, installation, optimization, and connectivity systems.
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- MEMBER 7 -->
+  <div
+    class="team-card glass rounded-3xl overflow-hidden transition-all duration-500 fade-up">
+
+    <div class="overflow-hidden">
+
+      <img
+        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop"
+        class="team-img w-full h-80 object-cover transition duration-700"
+        alt="Security Engineer">
+
+    </div>
+
+    <div class="p-7">
+
+      <h3 class="font-heading text-2xl font-semibold mb-2">
+        Grace Atabong
+      </h3>
+
+      <p class="text-blue-400 mb-4"
+        data-i18n="members.security.role">
+        Security Systems Engineer
+      </p>
+
+      <p class="text-slate-400 leading-relaxed text-sm"
+        data-i18n="members.security.bio">
+
+        Handles CCTV systems, surveillance infrastructure, and smart security deployment.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- ADD THESE TRANSLATIONS -->
+<!-- ========================= -->
+
+<script>
+
+translations.en.members.engineer = {
+  role: "Senior Software Engineer",
+  bio: "Builds scalable web applications, backend systems, and cloud infrastructure."
+};
+
+translations.fr.members.engineer = {
+  role: "Ingénieur Logiciel Senior",
+  bio: "Développe des applications web évolutives, des systèmes backend et des infrastructures cloud."
+};
+
+translations.en.members.marketer = {
+  role: "Digital Marketing Strategist",
+  bio: "Helps businesses grow online visibility through SEO and digital campaigns."
+};
+
+translations.fr.members.marketer = {
+  role: "Stratège en Marketing Digital",
+  bio: "Aide les entreprises à développer leur visibilité en ligne grâce au SEO et aux campagnes digitales."
+};
+
+translations.en.members.seo = {
+  role: "SEO & Analytics Expert",
+  bio: "Optimizes search visibility using analytics, technical SEO, and content strategy."
+};
+
+translations.fr.members.seo = {
+  role: "Expert SEO & Analytique",
+  bio: "Optimise la visibilité sur les moteurs de recherche grâce aux analyses et au SEO technique."
+};
+
+translations.en.members.starlink = {
+  role: "Starlink Infrastructure Specialist",
+  bio: "Oversees Starlink deployment, installation, optimization, and connectivity systems."
+};
+
+translations.fr.members.starlink = {
+  role: "Spécialiste Infrastructure Starlink",
+  bio: "Supervise le déploiement, l’installation et l’optimisation des systèmes Starlink."
+};
+
+translations.en.members.security = {
+  role: "Security Systems Engineer",
+  bio: "Handles CCTV systems, surveillance infrastructure, and smart security deployment."
+};
+
+translations.fr.members.security = {
+  role: "Ingénieure Systèmes de Sécurité",
+  bio: "Gère les systèmes CCTV, les infrastructures de surveillance et les solutions de sécurité intelligente."
+};
+
+</script>
 
     </div>
 
   </section>
 
-  <!-- ========================= -->
-  <!-- CTA SECTION -->
-  <!-- ========================= -->
+  <!-- CTA -->
 
-  <section class="px-6 pb-28">
+  <section class="px-6 pb-28 fade-up">
 
     <div
       class="max-w-6xl mx-auto glass rounded-[40px] p-10 md:p-16 relative overflow-hidden">
@@ -547,25 +839,31 @@
         <h2
           class="font-heading text-4xl md:text-5xl font-bold mb-6">
 
-          Build With Africa’s
-          <span class="gradient-text">
+          <span data-i18n="cta.title1">
+            Build With Africa’s
+          </span>
+
+          <span class="gradient-text" data-i18n="cta.title2">
             Next Generation
           </span>
-          Tech Team
+
+          <span data-i18n="cta.title3">
+            Tech Team
+          </span>
 
         </h2>
 
         <p
-          class="max-w-3xl mx-auto text-slate-300 text-lg leading-relaxed mb-10">
+          class="max-w-3xl mx-auto text-slate-300 text-lg leading-relaxed mb-10"
+          data-i18n="cta.description">
 
-          From software development to Starlink infrastructure and digital
-          marketing, Tora Tech delivers scalable technology solutions
-          designed for modern businesses.
+          From software development to Starlink infrastructure and digital marketing.
 
         </p>
 
         <button
-          class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-300 font-medium shadow-xl shadow-blue-500/30">
+          class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all duration-300 font-medium shadow-xl shadow-blue-500/30"
+          data-i18n="cta.button">
 
           Work With Us
 
@@ -576,143 +874,113 @@
     </div>
 
   </section>
-  <!-- ========================= -->
+
   <!-- FOOTER -->
-  <!-- ========================= -->
 
-  <footer class="relative border-t border-white/10">
+  <footer class="border-t border-slate-800 pt-24 pb-10 fade-up">
 
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[300px] bg-blue-600/10 blur-[120px]"></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="grid lg:grid-cols-4 gap-14">
 
-        <!-- Logo -->
+        <!-- BRAND -->
         <div>
 
-          <div class="flex items-center gap-4 mb-8">
-
-            <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-glow">
-              <span class="font-heading text-3xl font-bold">T</span>
-            </div>
-
-            <div>
-              <h2 class="font-heading text-3xl font-bold">
-                TORA TECH
-              </h2>
-
-              <p class="text-gray-400 mt-1">
-                Smart Technology Solutions
-              </p>
-            </div>
-
+          <div class="rounded-3xl bg-blue-600 flex items-center justify-center font-heading text-3xl font-bold">
+            <img src="/images/logo.png" alt="" width="300">
           </div>
 
-          <p class="text-gray-400 leading-relaxed">
-            Premium African technology company delivering
-            enterprise digital experiences, software solutions,
-            smart installations, and business growth systems.
+          <p
+            class="text-slate-400 mt-5 leading-relaxed"
+            data-i18n="footer.description">
+
+            Premium African technology company delivering enterprise digital experiences.
+
           </p>
 
         </div>
 
-        <!-- Services -->
+        <!-- SERVICES -->
         <div>
 
-          <h3 class="font-heading text-xl font-semibold mb-6">
+          <h4 class="font-heading text-lg font-semibold mb-6"
+            data-i18n="footer.servicesTitle">
             Services
-          </h3>
+          </h4>
 
-          <ul class="space-y-4 text-gray-400">
+          <ul class="space-y-2 text-slate-400">
 
-            <li><a href="#" class="hover:text-blue-400 transition">Software Development</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">SEO Optimization</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Digital Marketing</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Starlink Installation</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Security Cameras</a></li>
+            <li data-i18n="footer.service1">Software Development</li>
+            <li data-i18n="footer.service2">SEO Optimization</li>
+            <li data-i18n="footer.service3">Digital Marketing</li>
+            <li data-i18n="footer.service4">Starlink Installation</li>
+            <li data-i18n="footer.service5">Security Cameras</li>
 
           </ul>
 
         </div>
 
-        <!-- Quick Links -->
+        <!-- QUICK LINKS -->
         <div>
 
-          <h3 class="font-heading text-xl font-semibold mb-6">
+          <h4 class="font-heading text-lg font-semibold mb-6"
+            data-i18n="footer.quickLinks">
+
             Quick Links
-          </h3>
 
-          <ul class="space-y-4 text-gray-400">
+          </h4>
 
-            <li><a href="#" class="hover:text-blue-400 transition">Home</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">About</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Portfolio</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Testimonials</a></li>
-            <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
+          <ul class="space-y-2 text-slate-400 flex flex-col">
+
+            <a href="/" data-i18n="nav.home">Home</a>
+            <a href="/about.html" data-i18n="nav.about">About</a>
+            <a href="/team.html" data-i18n="nav.team">Team</a>
+            <a href="/portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+            <a href="/contact.html" data-i18n="nav.contact">Contact</a>
 
           </ul>
 
         </div>
 
-        <!-- Newsletter -->
+        <!-- CONTACT -->
         <div>
 
-          <h3 class="font-heading text-xl font-semibold mb-6">
-            Stay Updated
-          </h3>
+          <h4 class="font-heading text-lg font-semibold mb-6"
+            data-i18n="footer.contactTitle">
 
-          <p class="text-gray-400 mb-6">
-            Subscribe for technology updates and digital growth insights.
-          </p>
+            Contact
 
-          <form class="space-y-4">
+          </h4>
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-blue-500"
-            />
+          <div class="space-y-3 text-slate-400">
 
-            <button
-              class="w-full bg-blue-600 hover:bg-blue-500 transition py-4 rounded-2xl font-semibold"
-            >
-              Subscribe
-            </button>
+            <p data-i18n="footer.address1">
+              Petit pont 105, Bonendale
+            </p>
 
-          </form>
+            <p data-i18n="footer.address2">
+              Bonaberi, Littoral, Cameroon
+            </p>
 
-          <!-- Contact -->
-          <div class="mt-8 space-y-3 text-gray-400">
+            <p>+237 677 972 126</p>
 
-            <div class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5"></i>
-              +237 677 972 126
+            <p>toratech237@gmail.com</p>
+
+            <div class="flex gap-4 pt-4">
+
+              <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-blue-600 transition">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+
+              <a href="#" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-pink-600 transition">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
+              <a href="https://tiktok.com/@tora.tech" class="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-black transition">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+
             </div>
-
-            <div class="flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5"></i>
-              vidbite3@gmail.com
-            </div>
-
-          </div>
-
-          <!-- Social -->
-          <div class="flex gap-4 mt-8">
-
-            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
-              <i data-lucide="facebook"></i>
-            </a>
-
-            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
-              <i data-lucide="instagram"></i>
-            </a>
-
-            <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition">
-              <i data-lucide="linkedin"></i>
-            </a>
 
           </div>
 
@@ -720,18 +988,12 @@
 
       </div>
 
-      <!-- Bottom -->
-      <div
-        class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500"
-      >
+      <!-- COPYRIGHT -->
+      <div class="border-t border-slate-800 mt-16 pt-8 text-center text-slate-500 text-sm">
 
-        <p>
+        <span data-i18n="footer.copyright">
           © 2026 Tora Tech. All rights reserved.
-        </p>
-
-        <p>
-          Built with premium African innovation.
-        </p>
+        </span>
 
       </div>
 
@@ -739,29 +1001,43 @@
 
   </footer>
 
+  <!-- WhatsApp -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/237621411769"
+    target="_blank"
+    rel="noopener noreferrer">
 
-  <!-- ========================= -->
+    <i class="fab fa-whatsapp"></i>
+
+  </a>
+
   <!-- JAVASCRIPT -->
-  <!-- ========================= -->
 
   <script>
 
     lucide.createIcons();
 
-    // Navbar Scroll Effect
+    // =========================
+    // NAVBAR SCROLL
+    // =========================
+
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
 
       if(window.scrollY > 30){
-        navbar.classList.add('glass');
-      }else{
-        navbar.classList.remove('glass');
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
       }
 
     });
 
-    // Mobile Menu
+    // =========================
+    // MOBILE MENU
+    // =========================
+
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -769,18 +1045,227 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // i18n Example
+    // =========================
+    // FIXED FADE-UP FUNCTION
+    // =========================
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    }, {
+      threshold: 0.15
+    });
+
+    fadeElements.forEach(el => {
+      observer.observe(el);
+    });
+
+    // =========================
+    // COMPLETE I18N
+    // =========================
+
     const translations = {
 
       en: {
-        heroTitle: "Meet The Tora Tech Team"
+
+        nav: {
+          home: "Home",
+          services: "Services",
+          about: "About",
+          team: "Team",
+          portfolio: "Portfolio",
+          testimonials: "Testimonials",
+          contact: "Contact",
+          cta: "Start Project"
+        },
+
+        hero: {
+          badge: "Professional African Technology Experts",
+          title1: "Meet The",
+          title2: "Tora Tech Team",
+          description: "A team of experienced software engineers, digital strategists, designers, trainers, and infrastructure specialists helping businesses across Cameroon and Africa scale through technology."
+        },
+
+        teamSection: {
+          badge: "Our Leadership",
+          title1: "The People Behind",
+          title2: "Tora Tech",
+          description: "Passionate professionals combining technology, creativity, innovation, and enterprise expertise to deliver modern digital solutions across Africa."
+        },
+
+        members: {
+          ceo: {
+            role: "Founder & CEO",
+            bio: "Leads company strategy, innovation, and enterprise growth initiatives."
+          },
+
+          designer: {
+            role: "Lead UI/UX Designer",
+            bio: "Designs premium digital experiences for modern African businesses."
+          }
+        },
+
+        cta: {
+          title1: "Build With Africa’s",
+          title2: "Next Generation",
+          title3: "Tech Team",
+          description: "From software development to Starlink infrastructure and digital marketing, Tora Tech delivers scalable technology solutions designed for modern businesses.",
+          button: "Work With Us"
+        },
+
+        footer: {
+          description: "Premium African technology company delivering enterprise digital experiences, software solutions, smart installations, and business growth systems.",
+          servicesTitle: "Services",
+          service1: "Software Development",
+          service2: "SEO Optimization",
+          service3: "Digital Marketing",
+          service4: "Starlink Installation",
+          service5: "Security Cameras",
+          quickLinks: "Quick Links",
+          contactTitle: "Contact",
+          address1: "Petit pont 105, Bonendale",
+          address2: "Bonaberi, Littoral, Cameroon",
+          copyright: "© 2026 Tora Tech. All rights reserved."
+        }
+
       },
 
       fr: {
-        heroTitle: "Découvrez l'équipe Tora Tech"
+
+        nav: {
+          home: "Accueil",
+          services: "Services",
+          about: "À propos",
+          team: "Équipe",
+          portfolio: "Portfolio",
+          testimonials: "Témoignages",
+          contact: "Contact",
+          cta: "Démarrer un projet"
+        },
+
+        hero: {
+          badge: "Experts Africains en Technologie",
+          title1: "Découvrez",
+          title2: "L’Équipe Tora Tech",
+          description: "Une équipe d’ingénieurs logiciels, stratèges digitaux, designers, formateurs et spécialistes en infrastructure aidant les entreprises du Cameroun et d’Afrique à évoluer grâce à la technologie."
+        },
+
+        teamSection: {
+          badge: "Notre Leadership",
+          title1: "Les Experts Derrière",
+          title2: "Tora Tech",
+          description: "Des professionnels passionnés combinant technologie, créativité, innovation et expertise métier pour fournir des solutions digitales modernes en Afrique."
+        },
+
+        members: {
+          ceo: {
+            role: "Fondateur & Directeur Général",
+            bio: "Dirige la stratégie, l’innovation et la croissance de l’entreprise."
+          },
+
+          designer: {
+            role: "Responsable UI/UX",
+            bio: "Conçoit des expériences digitales premium adaptées aux entreprises africaines modernes."
+          }
+        },
+
+        cta: {
+          title1: "Construisez Avec",
+          title2: "La Nouvelle Génération",
+          title3: "D’Experts Tech Africains",
+          description: "Du développement logiciel aux infrastructures Starlink et au marketing digital, Tora Tech fournit des solutions technologiques évolutives pour les entreprises modernes.",
+          button: "Travaillez Avec Nous"
+        },
+
+        footer: {
+          description: "Entreprise technologique africaine premium offrant des expériences digitales modernes, des solutions logicielles, des installations intelligentes et des systèmes de croissance.",
+          servicesTitle: "Services",
+          service1: "Développement Logiciel",
+          service2: "Optimisation SEO",
+          service3: "Marketing Digital",
+          service4: "Installation Starlink",
+          service5: "Caméras de Sécurité",
+          quickLinks: "Liens Rapides",
+          contactTitle: "Contact",
+          address1: "Petit Pont 105, Bonendale",
+          address2: "Bonaberi, Littoral, Cameroun",
+          copyright: "© 2026 Tora Tech. Tous droits réservés."
+        }
+
       }
 
     };
+
+    // =========================
+    // APPLY TRANSLATIONS
+    // =========================
+
+    function getNestedValue(obj, path) {
+      return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    }
+
+    function setLanguage(lang){
+
+      localStorage.setItem('language', lang);
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+
+        const key = el.getAttribute('data-i18n');
+        const translation = getNestedValue(translations[lang], key);
+
+        if(translation){
+          el.innerHTML = translation;
+        }
+
+      });
+
+      // Buttons Style
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('text-slate-300');
+      });
+
+      if(lang === 'en'){
+        enBtn.classList.add('bg-blue-600', 'text-white');
+      } else {
+        frBtn.classList.add('bg-blue-600', 'text-white');
+      }
+
+    }
+
+    // Desktop buttons
+
+    const enBtn = document.getElementById('enBtn');
+    const frBtn = document.getElementById('frBtn');
+
+    enBtn.addEventListener('click', () => setLanguage('en'));
+    frBtn.addEventListener('click', () => setLanguage('fr'));
+
+    // Mobile buttons
+
+    document.getElementById('mobileEnBtn')
+      .addEventListener('click', () => setLanguage('en'));
+
+    document.getElementById('mobileFrBtn')
+      .addEventListener('click', () => setLanguage('fr'));
+
+    // Load saved language
+
+    const savedLanguage = localStorage.getItem('language') || 'en';
+
+    setLanguage(savedLanguage);
 
   </script>
 
