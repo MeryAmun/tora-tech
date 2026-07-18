@@ -1,0 +1,20 @@
+# ============================================
+# robots.txt
+# Tora Tech
+# https://toratech.online
+# ============================================
+
+User-agent: *
+
+Allow: /
+
+# Block unnecessary folders if added later
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# XML Sitemap
+Sitemap: https://toratech.online/sitemap.xml
+
+# Preferred host
+Host: https://toratech.online
